@@ -17,16 +17,18 @@
         <children>
           <component id="eae87" class="javax.swing.JTextArea" binding="textArea1" default-binding="true">
             <constraints/>
-            <properties/>
+            <properties>
+              <font name="DialogInput" size="20" style="0"/>
+            </properties>
           </component>
         </children>
       </scrollpane>
-      <component id="d36d9" class="javax.swing.JButton" binding="button1" default-binding="true">
+      <component id="aa152" class="javax.swing.JButton" binding="searchButton">
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Button"/>
+          <text value="Sök"/>
         </properties>
       </component>
     </children>

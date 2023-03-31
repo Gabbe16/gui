@@ -5,24 +5,33 @@ import java.io.*;
 public class GUI {
     private JPanel panel1;
     private JTextArea textArea1;
-    private JButton button1;
+    private JButton searchButton;
 
     public GUI() {
-        button1.addActionListener(new ActionListener() {
+        searchButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                open();
+                Search();
             }
         });
     }
 
+    private void New() {
+        textArea1.setText("");
+    }
+
+    private void Search() {
+        int textRows = textArea1.getRows();
+        String searchedPhrase = JOptionPane.showInputDialog("Write what letter/letters you want to search for");
+    }
+
     private void open() {
-        String filename = "info.txt";
+        String filename = JOptionPane.showInputDialog("Write the name of the file you wish to open");
+        filename = filename + ".txt";
         BufferedReader in = null;
         try {
             in = new BufferedReader(new FileReader(filename));
         } catch (FileNotFoundException ex) {
-            textArea1.setText("");
             return;
         }
         String nextLine = null;
@@ -41,15 +50,16 @@ public class GUI {
         Save();
     }
 
-    private static void Save() {
-        String filename = "test.txt";
+    private void Save() {
+        String filename = JOptionPane.showInputDialog("Name your text file");
+        filename = filename + ".txt";
         PrintWriter out = null;
         try {
             out = new PrintWriter(new BufferedWriter(new FileWriter(filename)));
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Failed to save");
         }
-        out.println("Hello World!");
+        out.println(textArea1.getText());
         out.flush();
         out.close();
     }
@@ -72,22 +82,23 @@ public class GUI {
         menuBar.add(menu);
 
         //a group of JMenuItems
-        menuItem = new JMenuItem("Open",
+        menuItem = new JMenuItem("Öppna",
                 KeyEvent.VK_T);
         //menuItem.setMnemonic(KeyEvent.VK_T); //used constructor instead
         menuItem.setAccelerator(KeyStroke.getKeyStroke(
                 KeyEvent.VK_O, ActionEvent.CTRL_MASK));
-        menuItem.getAccessibleContext().setAccessibleDescription(
-                "This doesn't really do anything");
         menuItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 open();
             }
         });
+
         menu.add(menuItem);
 
         menuItem = new JMenuItem("Spara");
+        menuItem.setAccelerator(KeyStroke.getKeyStroke(
+                KeyEvent.VK_S, ActionEvent.CTRL_MASK));
         menuItem.setMnemonic(KeyEvent.VK_O);
         menuItem.addActionListener(new ActionListener() {
             @Override
@@ -106,6 +117,20 @@ public class GUI {
             }
         });
 
+        menuItem = new JMenuItem("Nytt",
+                KeyEvent.VK_T);
+        //menuItem.setMnemonic(KeyEvent.VK_T); //used constructor instead
+        menuItem.setAccelerator(KeyStroke.getKeyStroke(
+                KeyEvent.VK_N, ActionEvent.CTRL_MASK));
+        menuItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                New();
+            }
+        });
+
+        menu.add(menuItem);
+
         return menuBar;
     }
 
@@ -117,7 +142,5 @@ public class GUI {
         frame.setJMenuBar(gui.createMenuBar());
         frame.pack();
         frame.setVisible(true);
-
-        gui.save();
     }
 }
