@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="25c972ee-5922-4bea-88b4-a594f5d621d1" name="Changes" comment="fixade menyn och en keybind + open/save WIP">
+    <list default="true" id="25c972ee-5922-4bea-88b4-a594f5d621d1" name="Changes" comment="Completed save and open button + search button WIP">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -60,7 +59,13 @@
       <option name="presentableId" value="LOCAL−00002" />
       <updated>1680009061058</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL−00003" summary="Completed save and open button + search button WIP">
+      <created>1680253449016</created>
+      <option name="number" value="LOCAL−00003" />
+      <option name="presentableId" value="LOCAL−00003" />
+      <updated>1680253449016</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -77,6 +82,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First commit" />
     <MESSAGE value="fixade menyn och en keybind + open/save WIP" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixade menyn och en keybind + open/save WIP" />
+    <MESSAGE value="Completed save and open button + search button WIP" />
+    <option name="LAST_COMMIT_MESSAGE" value="Completed save and open button + search button WIP" />
   </component>
 </project>

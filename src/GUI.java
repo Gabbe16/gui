@@ -21,8 +21,17 @@ public class GUI {
     }
 
     private void Search() {
-        int textRows = textArea1.getRows();
+        String text = textArea1.getText();
+        String[] splitText = text.split("\n");
         String searchedPhrase = JOptionPane.showInputDialog("Write what letter/letters you want to search for");
+        int i = 0;
+        while (i<splitText.length) {
+            if (splitText[i].contains(searchedPhrase)) {
+                int row = i + 1;
+                JOptionPane.showMessageDialog(null, searchedPhrase + " is on row " + row);
+            }
+            i++;
+        }
     }
 
     private void open() {
@@ -75,14 +84,14 @@ public class GUI {
         menuBar = new JMenuBar();
 
         //Build the first menu.
-        menu = new JMenu("Arkiv");
+        menu = new JMenu("Archive");
         menu.setMnemonic(KeyEvent.VK_A);
         menu.getAccessibleContext().setAccessibleDescription(
                 "The only menu in this program that has menu items");
         menuBar.add(menu);
 
         //a group of JMenuItems
-        menuItem = new JMenuItem("Öppna",
+        menuItem = new JMenuItem("Open",
                 KeyEvent.VK_T);
         //menuItem.setMnemonic(KeyEvent.VK_T); //used constructor instead
         menuItem.setAccelerator(KeyStroke.getKeyStroke(
@@ -96,7 +105,7 @@ public class GUI {
 
         menu.add(menuItem);
 
-        menuItem = new JMenuItem("Spara");
+        menuItem = new JMenuItem("Save");
         menuItem.setAccelerator(KeyStroke.getKeyStroke(
                 KeyEvent.VK_S, ActionEvent.CTRL_MASK));
         menuItem.setMnemonic(KeyEvent.VK_O);
@@ -117,7 +126,7 @@ public class GUI {
             }
         });
 
-        menuItem = new JMenuItem("Nytt",
+        menuItem = new JMenuItem("New",
                 KeyEvent.VK_T);
         //menuItem.setMnemonic(KeyEvent.VK_T); //used constructor instead
         menuItem.setAccelerator(KeyStroke.getKeyStroke(
